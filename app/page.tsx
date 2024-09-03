@@ -4,7 +4,8 @@ export default function Home() {
   return (
     <>
       <div>Home page</div>
-      <Button variant={'destructive'}>Click</Button>
+      <Button variant="default">Click</Button>
     </>
   )
 }
+

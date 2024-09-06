@@ -1,4 +1,4 @@
-import { FC, createElement } from 'react'
+import { createElement } from 'react'
 import clsx from 'clsx'
 
 type TitleSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'

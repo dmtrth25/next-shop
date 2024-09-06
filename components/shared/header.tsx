@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import Image from 'next/image'
 import { ArrowRight, ShoppingCart, UserRound } from 'lucide-react'
 import { Container } from '@/components/shared/container'

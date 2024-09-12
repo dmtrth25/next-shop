@@ -1,5 +1,6 @@
+import { items } from '../constants'
 import { Input } from '../ui'
-import { FilterCheckbox, Title, RangeSlider } from './'
+import { FilterCheckbox, Title, RangeSlider, CheckboxFiltersGroup } from './'
 
 interface IFiltersProps {
   className?: string
@@ -23,6 +24,14 @@ export const Filters: FC<IFiltersProps> = ({ className }) => {
         </div>
         <RangeSlider min={0} max={5000} step={10} value={[0, 5000]} />
       </div>
+
+      <CheckboxFiltersGroup
+        title="Ingredients"
+        className="mt=5"
+        limit={4}
+        defaultItems={items}
+        items={items}
+      />
     </div>
   )
 }

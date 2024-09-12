@@ -15,7 +15,7 @@ export default function Home() {
           </div>
           {/**List of products*/}
           <div className="flex-1">
-            <div className="flex flex-col gap-16">List of products </div>
+            <div className="flex flex-col gap-16">List of products</div>
           </div>
         </div>
       </Container>

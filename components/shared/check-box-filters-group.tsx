@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, ChangeEvent } from 'react'
 import { Input } from '../ui'
 import { FilterCheckbox, IFilterChecboxProps } from './filter-checkbox'
 
@@ -26,14 +26,26 @@ export const CheckboxFiltersGroup: FC<ICheckBoxFiltersProps> = ({
   defaultValue,
 }) => {
   const [showAll, setShowAll] = useState(false)
-  const list = showAll ? items : defaultItems.slice(0, limit)
+  const [searchValue, setSearchValue] = useState('')
+
+  const onChangeInputSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value)
+  }
+
+  const list = showAll
+    ? items.filter(item => item.text.toLowerCase().includes(searchValue.toLowerCase()))
+    : defaultItems.slice(0, limit)
   return (
     <div className={className}>
       <p className="font-bold mb-3">{title}</p>
 
       {showAll && (
         <div className="mb-5">
-          <Input placeholder={searchInputPlaceholder} className="bg-gray-50 border-none" />
+          <Input
+            onChange={onChangeInputSearch}
+            placeholder={searchInputPlaceholder}
+            className="bg-gray-50 border-none"
+          />
         </div>
       )}
 

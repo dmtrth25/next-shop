@@ -1,13 +1,12 @@
 export const categories = [
-  'Pizzas',
-  'Combos',
-  'Snacks',
-  'Cocktails',
-  'Coffee',
-  'Drinks',
-  'Desserts',
+  { id: 1, name: 'Pizzas' },
+  { id: 2, name: 'Combos' },
+  { id: 3, name: 'Snacks' },
+  { id: 4, name: 'Cocktails' },
+  { id: 5, name: 'Coffee' },
+  { id: 6, name: 'Drinks' },
+  { id: 7, name: 'Desserts' },
 ]
-export const activeIndex = 0
 
 export const items = [
   {

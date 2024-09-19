@@ -14,17 +14,27 @@ enum OrderStatus {
   CANCELLED
 }
 
+enum UserRole {
+  USER
+  ADMIN
+}
+
 // Table
 model User {
   //name //type //unique id //by default id+1
   id Int @id @default(autoincrement())
 
-  cart   Cart[]
-  orders Order[]
+  cart             Cart?
+  orders           Order[]
+  verificationCode VerificationCode?
 
   fullName String
-  email    String @unique
+  email    String   @unique
   password String
+  role     UserRole @default(USER)
+
+  provider   String?
+  providerId String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -94,7 +104,7 @@ model Cart {
   items CartItem[]
 
   user   User? @relation(fields: [userId], references: [id])
-  userId Int?
+  userId Int?  @unique
 
   token String
 
@@ -119,6 +129,19 @@ model CartItem {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model VerificationCode {
+  id Int @id @default(autoincrement())
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int  @unique
+
+  code String @unique
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, code])
 }
 
 model Order {

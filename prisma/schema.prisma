@@ -27,6 +27,7 @@ model User {
   cart             Cart?
   orders           Order[]
   verificationCode VerificationCode?
+  verified         DateTime
 
   fullName String
   email    String   @unique

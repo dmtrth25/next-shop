@@ -1,7 +1,9 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, ShoppingCart, UserRound } from 'lucide-react'
-import { Container } from '@/components/shared/container'
+import { Container, SearchInput } from '@/components/shared'
 import { Button } from '@/components/ui'
+
 import { cn } from '@/lib/utils'
 
 interface IHeaderProps {
@@ -13,12 +15,18 @@ export const Header: FC<IHeaderProps> = ({ className }) => {
     <header className={cn('border border-b', className)}>
       <Container className="flex items-center justify-between py-8">
         {/*Left side*/}
-        <div className="flex items-center gap-4">
-          <Image src="/logo.png" alt="logo" width={35} height={35} />
-          <div>
-            <h1 className="text-2xl uppercase font-black">Next Shop</h1>
-            <p className="text-sm text-gray-400 leading-3">The best shop</p>
+        <Link href="/">
+          <div className="flex items-center gap-4">
+            <Image src="/logo.png" alt="logo" width={35} height={35} />
+            <div>
+              <h1 className="text-2xl uppercase font-black">Next Shop</h1>
+              <p className="text-sm text-gray-400 leading-3">The best shop</p>
+            </div>
           </div>
+        </Link>
+
+        <div className="mx-10 flex-1">
+          <SearchInput />
         </div>
 
         {/*Right side*/}

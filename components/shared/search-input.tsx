@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils'
 import { Search } from 'lucide-react'
+import Link from 'next/link'
 import { useRef, useState } from 'react'
 import { useClickAway } from 'react-use'
 
@@ -30,6 +31,21 @@ export const SearchInput: FC<ISearchInputProps> = ({ className }) => {
           placeholder="Search..."
           onFocus={() => setIsFocus(true)}
         />
+
+        <div
+          className={cn(
+            'absolute w-full bg-white rounded-xl py-2 top-14 shadow-md transition-all duration-200 invisible opacity-0 z-30',
+            isFocus && 'visible opacity-100 top-12',
+          )}>
+          <Link className="flex items-center gap-3 px-3 py-2 hover:bg-primary/10" href="/product/1">
+            <img
+              className="rounded-sm h-8 w-8"
+              src="https://media.dodostatic.net/image/r:584x584/11EE7D614CBE0530B7234B6D7A6E5F8E.avif"
+              alt="Product"
+            />
+            <span>Product 1</span>
+          </Link>
+        </div>
       </div>
     </>
   )
